@@ -51,6 +51,7 @@ typedef struct	s_vars {
 int	key_hook(int keycode, t_vars *vars)
 {
 	printf("Hello from key_hook!\n");
+	return (0);
 }
 
 int	main(void)
@@ -68,6 +69,23 @@ We have now registered a function that will print a message whenever we press
 a key. As you can see, we register a hook function with `mlx_key_hook`. However
 in the background it simply calls the function `mlx_hook` with the appropriate
 X11 event types. We will discuss this in the next chapter.
+
+## Hooking into mouse events
+
+<img align="right" src="res/mouse-schema.png">
+
+Also, you can hook mouse events.
+
+```c
+mlx_mouse_hook(vars.win, mouse_hook, &vars);
+```
+Mouse code for MacOS:
+  - Left click: 1
+  - Right click: 2
+  - Middle click: 3
+  - Scroll up: 4
+  - Scroll down : 5  
+
 
 ## Test your skills!
 
